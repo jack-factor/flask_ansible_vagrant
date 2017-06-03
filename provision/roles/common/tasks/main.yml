@@ -1,3 +1,6 @@
 ---
   - name: ensure git is the last version
     apt: name=git state=latest
+
+  - name: ensure vim is the last version
+    apt: name=vim state=latest
