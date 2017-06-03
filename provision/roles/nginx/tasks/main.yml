@@ -1,0 +1,3 @@
+---
+  - name: ensure nginx is the last version
+    apt: name=nginx state=latest

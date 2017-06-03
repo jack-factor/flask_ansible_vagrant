@@ -4,3 +4,4 @@
 
   - name: ensure vim is the last version
     apt: name=vim state=latest
+    notify: start nginx
