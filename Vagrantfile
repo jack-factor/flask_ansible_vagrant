@@ -35,12 +35,12 @@ Vagrant.configure("2") do |config|
                 v.customize ["modifyvm", :id, "--memory", "512"]
             end
 
-            #guest_config.vm.provision "ansible" do |ansible|
-            #    ansible.playbook = "provision/playbook.yml"
-            #    ansible.inventory_path = "provision/inventories"
-            #    ansible.limit = "all"
-            #    ansible.sudo = true
-            #end
+            guest_config.vm.provision "ansible" do |ansible|
+                ansible.playbook = "provision/playbook.yml"
+                ansible.inventory_path = "provision/inventory"
+                ansible.limit = "all"
+                ansible.sudo = true
+            end
            
     end
 end
