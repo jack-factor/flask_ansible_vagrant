@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
 
             guest_config.vm.hostname = "ubuntu.app"
 
-            guest_config.vm.synced_folder "./","/var/www/local.app.py", {:mount_options => ['dmode=777','fmode=777']}
+            guest_config.vm.synced_folder "./","/var/www/project", {:mount_options => ['dmode=777','fmode=777']}
 
             guest_config.vm.provider :virtualbox do |v|
                 v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]

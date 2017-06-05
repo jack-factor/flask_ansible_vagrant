@@ -3,3 +3,5 @@
   mysql_root_pass: 123456
   mysql_host: localhost
   project_path: /var/www/project
+  python_project_path: /var/www/project/venv
+  python_req_path: /var/www/project/requirements.txt

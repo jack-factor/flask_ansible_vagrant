@@ -1,0 +1,23 @@
+---
+  - name: python 3 dependencies
+    apt: name={{ item }} state=latest
+    with_items:
+      - python3-pip
+      - python3-dev
+      - build-essential
+      - python-software-properties
+      - python-setuptools
+      - libmysqlclient-dev
+      - python-virtualenv
+
+
+  - name: pip upgrade
+    command: pip install --upgrade
+
+  - name: virtualenv enviroment install
+    pip: 
+        chdir={{ project_path }}
+        virtualenv={{ python_project_path }}
+        virtualenv_python=python3
+        requirements={{ python_req_path }}
+
