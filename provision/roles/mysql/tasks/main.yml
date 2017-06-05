@@ -12,7 +12,7 @@
       - libmysqlclient-dev
 
   - name: update mysql root password mysql
-    mysql_user: name=root host=localhost password={{ mysql_root_pass }}
+    mysql_user: name={{ mysql_root_user }} host={{ mysql_host }} password={{ mysql_root_pass }}
 
   - name: copy my.cnf file with root database pass
     template: src=my.cnf dest=~/.my.cnf mode=0600

@@ -1,5 +1,5 @@
 - name: ubuntu app
-  hosts: ubuntu.app
+  hosts: all
   user: vagrant
   roles:
     - common

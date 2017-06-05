@@ -1,0 +1,5 @@
+---
+  mysql_root_user: root
+  mysql_root_pass: 123456
+  mysql_host: localhost
+  project_path: /var/www/project
