@@ -1,4 +1,8 @@
 ---
+  - name: update and upgrade apt packages
+    become: true
+    apt: upgrade=yes update_cache=yes cache_valid_time=86400
+
   - name: ensure git is the last version
     apt: name=git state=latest
 

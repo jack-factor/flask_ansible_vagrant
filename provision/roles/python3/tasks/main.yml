@@ -12,7 +12,7 @@
 
 
   - name: pip upgrade
-    command: pip install --upgrade
+    command: pip install --upgrade pip setuptools
 
   - name: virtualenv enviroment install
     pip: 
