@@ -4,3 +4,6 @@
 
   - name: ensure vim is the last version
     apt: name=vim state=latest
+
+  - name: ensure curl is the last version
+    apt: name=curl state=latest
