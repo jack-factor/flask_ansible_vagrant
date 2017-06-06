@@ -1,7 +1,12 @@
 ---
+  server_name: project.app
+  virtualhost: project.app
+  project_name: project
   mysql_root_user: root
   mysql_root_pass: 123456
   mysql_host: localhost
   project_path: /var/www/project
   python_project_path: /var/www/project/venv
   python_req_path: /var/www/project/requirements.txt
+  user_os: vagrant
+  path_os: /home/vagrant
