@@ -1,8 +1,8 @@
 - name: ubuntu app
-  hosts: ubuntu.app
+  hosts: local
   user: vagrant
   roles:
     - common
-    - nginx
     - mysql
     - python3
+    - nginx
