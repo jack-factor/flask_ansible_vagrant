@@ -11,15 +11,31 @@
       - python-virtualenv
 
 
-  - name: pip upgrade
-    command: pip install --upgrade pip setuptools
 
   - name: virtualenv enviroment install
     pip: 
+        name=virtualenv
         chdir={{ project_path }}
         virtualenv={{ python_project_path }}
         virtualenv_python=python3
-        requirements={{ python_req_path }}
+
+
+  - name: Upgrade pip
+    pip:
+      name=pip
+      virtualenv={{ python_project_path }}
+      extra_args=--upgrade
+
+  - name: Upgrade setuptools
+    pip:
+      name=setuptools
+      virtualenv={{ python_project_path }}
+      extra_args=--upgrade
+
+  - name: requirements txt
+    pip:
+      requirements={{ python_req_path }}
+      virtualenv={{ python_project_path }}
 
   - name: Executable gunicor
     template: src=gunicorns.conf dest=/etc/init/{{ project_name }}.conf
