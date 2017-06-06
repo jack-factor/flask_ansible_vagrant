@@ -21,3 +21,16 @@
         virtualenv_python=python3
         requirements={{ python_req_path }}
 
+  - name: Executable gunicor
+    template: src=gunicorns.conf dest=/etc/init/{{ project_name }}.conf
+
+  - name: directory sock
+    file: path={{ path_os }}/run state=directory owner={{ user_os }} group=www-data mode=0775
+    register: result
+
+  - name: start project
+    service: name=project state=started  enabled=yes
+
+  - name: enabled project
+    when: result.changed
+    service: name=project state=restarted  enabled=yes
