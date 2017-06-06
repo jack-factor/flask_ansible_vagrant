@@ -26,7 +26,7 @@ Vagrant.configure("2") do |config|
             #guest_config.vm.network :forwarded_port, guest: 27017, host: 8887, auto_correct: true
             #guest_config.vm.network :forwarded_port, guest: 8080, host: 8881, auto_correct: true
 
-            guest_config.vm.hostname = "ubuntu.app"
+            #guest_config.vm.hostname = "project.app"
 
             guest_config.vm.synced_folder "./","/var/www/project", {:mount_options => ['dmode=777','fmode=777']}
 
@@ -37,7 +37,7 @@ Vagrant.configure("2") do |config|
 
             guest_config.vm.provision "ansible" do |ansible|
                 ansible.playbook = "provision/playbook.yml"
-                ansible.inventory_path = "provision/inventory"
+                ansible.inventory_path = "provision/hosts"
                 ansible.limit = "all"
                 ansible.sudo = true
             end
