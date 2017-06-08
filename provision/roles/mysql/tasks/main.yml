@@ -1,0 +1,18 @@
+  - name: mysql install last version
+    apt: name=mysql-server state=latest
+
+  - name: start mysql
+    service: name=mysql state=restarted enabled=yes
+
+  - name: install packages mysql
+    apt: name={{ item }} state=installed update_cache=yes
+    with_items: 
+      - python-selinux
+      - python-mysqldb
+      - libmysqlclient-dev
+
+  - name: update mysql root password mysql
+    mysql_user: name={{ mysql_root_user }} host={{ mysql_host }} password={{ mysql_root_pass }}
+
+  - name: copy my.cnf file with root database pass
+    template: src=my.cnf dest=~/.my.cnf mode=0600

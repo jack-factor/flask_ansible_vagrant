@@ -1,0 +1,4 @@
+.vagrant/*
+provision/playbook.retry
+venv/*
+__pycache__/*

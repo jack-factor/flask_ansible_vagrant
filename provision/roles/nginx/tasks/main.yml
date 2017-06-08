@@ -1,0 +1,14 @@
+---
+  - name: ensure nginx is the last version
+    apt: name=nginx state=latest
+    notify: start nginx
+
+  - name: config nginx virtualhost
+    template: src=virtualhost dest=/etc/nginx/sites-enabled/{{ virtualhost }}
+  
+  - name: link vhost
+    file:
+      src: /etc/nginx/sites-enabled/{{ virtualhost }}
+      dest: /etc/nginx/sites-available/{{ virtualhost }}
+      state: link
+    notify: restart nginx

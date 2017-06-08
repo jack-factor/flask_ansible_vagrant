@@ -1,0 +1,13 @@
+---
+  - name: update and upgrade apt packages
+    become: true
+    apt: upgrade=yes update_cache=yes cache_valid_time=86400
+
+  - name: ensure git is the last version
+    apt: name=git state=latest
+
+  - name: ensure vim is the last version
+    apt: name=vim state=latest
+
+  - name: ensure curl is the last version
+    apt: name=curl state=latest

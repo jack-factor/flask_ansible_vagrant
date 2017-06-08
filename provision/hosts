@@ -1,0 +1,3 @@
+# vagrant
+[local]
+project.app ansible_ssh_host=192.168.20.10 ansible_ssh_port=22
